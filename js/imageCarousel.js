@@ -13,18 +13,17 @@ var slide_index = 1;
 /*
  * ===================================================================
  * Script		: create_icons()
- * Purpose	: function to display images ina carousel
+ * Purpose	: function to create carousel controls using selected 
+ *						icons
  * Author		: Mark Fletcher
  * Date			: 17.10.2019
  * 
  * Input :			
  * num	- between 1 and length of carousel data array
  *				- default = 1
- * carousel_data- data array
  * 
  * Output :		
- * 	Dynamically changes background image in main content <div>
- *  and updates slide counter
+ * 	Carousel control icons
  * 
  * Notes :
  *
@@ -53,7 +52,7 @@ function create_icons(num) {
  * num - value from controls -1 (left), 1, 2, 3, 4, 5, +1 (right)
  *  
  * Output :		
- * 	calls  background image in main content <div>
+ * 	calls background image in main content <div>
  *  and updates slide counter
  * 
  * Notes :
