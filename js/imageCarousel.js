@@ -1,10 +1,10 @@
 // data array for carousel images
 var carousel_data = [
-    'image001.jpg',
-    'image002.jpg',
-    'image003.jpg',
-    'image004.jpg',
-    'image005.jpg'
+    'image01.jpg',
+    'image02.jpg',
+    'image03.jpg',
+    'image04.jpg',
+    'image05.jpg'
 ];
 
 // initialize slide_index variable
@@ -41,21 +41,19 @@ function create_icons(num) {
 
 /*
  * ===================================================================
- * Script		: plus_divs()
- * Purpose	: function to display images in a carousel
- * Author		: Mark Fletcher
- * Date			: 19.04.2019
- *
- * Calls
+ * Script:	plus_divs()
+ * Purpose:	function to display images in a carousel
+ * Author:	Mark Fletcher
+ * Date:		19.04.2019
  * 
- * Input :			
- * num - value from controls -1 (left), 1, 2, 3, 4, 5, +1 (right)
+ * Input:			
+ * 	num - value from controls -1 (left), 1, 2, 3, 4, 5, +1 (right)
  *  
- * Output :		
- * 	calls background image in main content <div>
+ * Output:		
+ *	calls background image in main content <div>
  *  and updates slide counter
  * 
- * Notes :
+ * Notes:
  *
  * ==================================================================
 */
@@ -73,21 +71,21 @@ function plus_divs(num) {
 
 /*
  * ===================================================================
- * Script		: image_carousel()
- * Purpose	: function to display images ina carousel
- * Author		: Mark Fletcher
- * Date			: 19.04.2019
+ * Script:	image_carousel()
+ * Purpose:	function to display images ina carousel
+ * Author:	Mark Fletcher
+ * Date:		19.04.2019
  * 
- * Input :			
- * num	- between 1 and length of carousel data array
- *			- default = 1
- * data	- carousel data array
+ * Input:			
+ * 	num		- between 1 and length of carousel data array
+ *				- default = 1
+ * 	data	- carousel data array
  * 
- * Output :		
+ * Output:		
  * 	Dynamically changes carousel image in the carousel <div>
  *  and updates slide counter
  * 
- * Notes :
+ * Notes:
  *
  * ==================================================================
 */
@@ -112,18 +110,18 @@ function image_carousel(num, data) {
 
 /*
  * ===================================================================
- * Script	: showPopup() & hidePopup()
- * Purpose	: function to display and hide popup navigation menu
- * Author	: Mark Fletcher
- * Date		: 19.04.2019
+ * Script:	showPopup() & hidePopup()
+ * Purpose:	function to display and hide popup navigation menu
+ * Author:	Mark Fletcher
+ * Date:		19.04.2019
  * 
- * Input :			
+ * Input:			
  * 
- * Output :		
+ * Output:		
  * 	Dynamically changes the display style
  *	show = block, hide = none
  * 
- * Notes :
+ * Notes:
  *
  * ==================================================================
 */
