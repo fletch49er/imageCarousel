@@ -7,23 +7,24 @@
 <!-- include carousel stylesheet -->
 <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
 
-<div id="carousel">
+<div id="carousel" onload="rotate_images()">
   <div id="c_images">
-  	<a href="images/image01.jpg" target="_blank"><img src="images/image01.jpg" alt="image1" /></a>
     <noscript>
     	<a href="images/image01.jpg" target="_blank"><img src="images/image01.jpg" alt="image1" /></a>
     </noscript>
   </div><!-- end #c_images -->
   <div id="c_controls">
   	<div id="c_icons">
-    <script>
-    	 create_icons(slide_index);
-    </script>
+		
     </div><!-- end #c_icons -->
-    <div id="c_count">1 of 5</div><!-- end #c_count -->
+    <div id="c_count">
+		
+    </div><!-- end #c_count -->
   </div><!-- end #c_controls -->
-  <script>
-  	//setInterval(plus_divs('+'), 2000);
-  </script>
 </div><!-- end #carousel -->
-
+<script>
+//create control icons
+plus_divs(slide_index);
+//automatic rotate images
+setInterval(function(){plus_divs('+')}, 7000);
+</script>

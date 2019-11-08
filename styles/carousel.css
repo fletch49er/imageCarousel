@@ -2,16 +2,21 @@
 	position: relative;
 	background-color: #333; /*darkgrey*/
   border: 1px solid #ccc; /*grey*/
-  padding: 0px;
+  vertical-align: bottom;
+	float: right;
+  margin: 10px 0 20px 30px;
+	padding: 0px;
   width: 395px;
+  neight: 295px;
 }
 #c_images {
 	background-color: #fff; /*white*/
-	width: 395px;
-  height: 300px;
+	width: 100%;
+  padding: 0px;
 }
 #c_images > a > img {
 	width: 100%;
+  padding: 0px;
 }
 #c_controls {
 	position: absolute;
@@ -21,13 +26,12 @@
   opacity: 0.75;
 	width: 375px;
 	height: 30px;
-  margin: auto;
   padding: 10px;
   color: #fff; /*white*/
 }
 #c_icons {
 	display: inline-block;
-	width: 70%;
+	width: 80%;
 	margin: 0px;
   text-align: left;
 }
@@ -45,8 +49,28 @@
 #c_count {
 	display: inline-block;
   float: right;
-	width: 10%;
+	width: 40px;
 	border: 1px solid #fff; /*white*/
   margin-right: 5px;
   padding: 2px 5px;
+}
+@media only screen and (max-width: 640px) {
+	/* main content styling */
+  #carousel {
+  	width: 330px;
+    float: none;
+    margin: 0 auto;
+    padding: 0px;
+	}
+  #c_controls {
+  	width: 310px;
+  }
+  #c_icons {
+		width: 70%;
+	}
+  .c_dots, .c_arrows {
+		margin: 0px 5px;
+  	vertical-align: middle;
+  	cursor: pointer;
+	}
 }

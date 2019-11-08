@@ -1,42 +1,53 @@
-// data array for carousel images
-var carousel_data = [
-    'image01.jpg',
-    'image02.jpg',
-    'image03.jpg',
-    'image04.jpg',
-    'image05.jpg'
-];
+//set number of images to be used
+var num_images = 6;
 
 // initialize slide_index variable
 var slide_index = 1;
 
 /*
  * ===================================================================
- * Script		: create_icons()
- * Purpose	: function to create carousel controls using selected 
- *						icons
+ * Script		: create_data_array()
+ * Purpose	: function to create data array for carousel images
  * Author		: Mark Fletcher
  * Date			: 17.10.2019
  * 
  * Input :			
- * num	- between 1 and length of carousel data array
- *				- default = 1
+ * 	num	- number of items in array
  * 
  * Output :		
- * 	Carousel control icons
+ * 
  * 
  * Notes :
  *
  * ==================================================================
 */
-function create_icons(num) {
-	var count = ''
-  var dot_class = 'far';
-  document.write('<i class="fas c_arrows" onclick="plus_divs(\'-\')">&#xf104;</i>');
-	for(count = 1; count <= 5; count++) {
-  	document.write('<i class="'+dot_class+' c_dots" onclick="plus_divs('+count+')">&#xf111;</i>');
-	}
-	document.write('<i class="fas c_arrows" onclick="plus_divs(\'+\')">&#xf105;</i>');
+var carousel_data = new Array(num_images);
+function create_data_array(num) {
+  for(var x = 0; x < num; x++) {
+  	carousel_data[x] = 'image0'+(x+1)+'.jpg';
+  }  
+}
+
+/*
+ * ===================================================================
+ * Script		: create image counter()
+ * Purpose	: function to create carousel image counter 
+ * Author		: Mark Fletcher
+ * Date			: 04.11.2019
+ * 
+ * Input :			
+ * 	num	- length of carousel data array
+ *			- default = 1
+ * 
+ * Output :		
+ * 	carousel image counter text
+ * 
+ * Notes :
+ *
+ * ==================================================================
+*/
+function create_image_counter(num, num_images) {
+	document.write(num+' to '+ num_images);
 }
 
 /*
@@ -47,7 +58,7 @@ function create_icons(num) {
  * Date:		19.04.2019
  * 
  * Input:			
- * 	num - value from controls -1 (left), 1, 2, 3, 4, 5, +1 (right)
+ * 	num - value from controls - (left), 1, 2, 3, 4, 5, + (right)
  *  
  * Output:		
  *	calls background image in main content <div>
@@ -71,6 +82,41 @@ function plus_divs(num) {
 
 /*
  * ===================================================================
+ * Script		: create_icons()
+ * Purpose	: function to create carousel controls using selected 
+ *						icons
+ * Author		: Mark Fletcher
+ * Date			: 17.10.2019
+ * 
+ * Input :			
+ * num	- between 1 and length of carousel data array
+ *			- default = 1
+ * 
+ * Output :		
+ * 	Carousel control icons
+ * 
+ * Notes :
+ *
+ * ==================================================================
+*/
+function create_icons(num, array_length) {
+	var count = '';
+  var dot_class = '';
+  var controls = '<i class="fas c_arrows" onclick="plus_divs(\'-\')">&#xf104;</i>';
+	for(count = 1; count <= array_length; count++) {
+  	if(count == num) {
+    	dot_class = 'fas';
+    } else {
+    	dot_class = 'far';
+    }
+  	controls = controls+'\r<i class="'+dot_class+' c_dots" onclick="plus_divs('+count+')">&#xf111;</i>';
+	}
+	controls = controls+'\r<i class="fas c_arrows" onclick="plus_divs(\'+\')">&#xf105;</i>';
+  return controls;
+}
+
+/*
+ * ===================================================================
  * Script:	image_carousel()
  * Purpose:	function to display images ina carousel
  * Author:	Mark Fletcher
@@ -90,11 +136,14 @@ function plus_divs(num) {
  * ==================================================================
 */
 function image_carousel(num, data) {
+	//set image carousel folder
 	var img_folder = 'images/';
+  //set nodes
   var image = document.getElementById('c_images');
   var icons = document.getElementById('c_icons');
   var controls = icons.getElementsByTagName('script');
   var count = document.getElementById('c_count');
+  //control carousel index
   if (num > data.length) {
   	slide_index = 1;
   } 
@@ -102,35 +151,12 @@ function image_carousel(num, data) {
   	slide_index = data.length;
   }
   var display = slide_index - 1;
-  //var new_icons = create_icons(slide_index);
+  var new_icons = create_icons(slide_index, data.length);
   image.innerHTML = '<a href="'+img_folder+data[display]+'" target="_blank"><img src="'+img_folder+carousel_data[display]+'" alt="'+data[display]+'"></a>';
-  //icons.innerHTML = new_icons;
+  icons.innerHTML = new_icons;
   count.innerHTML = slide_index+' of '+data.length;
 }
 
-/*
- * ===================================================================
- * Script:	showPopup() & hidePopup()
- * Purpose:	function to display and hide popup navigation menu
- * Author:	Mark Fletcher
- * Date:		19.04.2019
- * 
- * Input:			
- * 
- * Output:		
- * 	Dynamically changes the display style
- *	show = block, hide = none
- * 
- * Notes:
- *
- * ==================================================================
-*/
-//showPopup function
-function show_popup() {
-	document.getElementById("popup").style.display="block";
-}
-	
-//hidePopup function
-function hide_popup() {
-	document.getElementById("popup").style.display="none";
-}
+//create array of images for carousel
+create_data_array(num_images);
+
