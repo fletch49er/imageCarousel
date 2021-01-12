@@ -1,4 +1,6 @@
 # ignore list
+.*
+*~
 *.xml
 *.sql
 *.zip
